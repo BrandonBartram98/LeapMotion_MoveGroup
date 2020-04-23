@@ -74,6 +74,11 @@ class LeapMoveGroup(object):
     self.resetButton = tk.Button(self.gui_mainWindow, text="Reset Position", command=self.resetRobotPos, width=20)
     self.resetButton.configure(bg="red")
     self.resetButton.grid(row=2, column=0)
+    
+    #GUI Quit Button
+    self.quitButton = tk.Button(self.gui_mainWindow, text="Quit", command=self.quitApplication, width=20)
+    self.quitButton.configure(bg="red")
+    self.quitButton.grid(row=3, column=0)
 
     self.dpRound = 1 #3 Decimal Points for Rounding
     #Init previous position variables
@@ -91,6 +96,7 @@ class LeapMoveGroup(object):
     self.initialPos.x = group.get_current_pose().pose.position.x
     self.initialPos.y = group.get_current_pose().pose.position.z
     self.initialPos.z = group.get_current_pose().pose.position.y
+    self.initialOri = group.get_current_pose().pose.orientation
   
     self.idling = True #Variable used to stop callback running gotopose
     self.gui_mainWindow.mainloop()
@@ -155,6 +161,7 @@ class LeapMoveGroup(object):
     pose_goal.position.x = self.palmRight.x
     pose_goal.position.y = -1 * self.palmRight.z #Data inverted
     pose_goal.position.z = self.palmRight.y #Z & Y are swapped as LEAP is facing upwards
+    pose_goal.orientation = self.initialOri
     
     #Desired Positions are set for checking
     self.desiredPosx = pose_goal.position.x
@@ -219,6 +226,7 @@ class LeapMoveGroup(object):
       reset_goal.position.x = self.initialPos.x
       reset_goal.position.y = self.initialPos.z
       reset_goal.position.z = self.initialPos.y
+      reset_goal.orientation = self.initialOri
 
       #Execute Movement
       group.set_pose_target(reset_goal)
@@ -227,11 +235,12 @@ class LeapMoveGroup(object):
       group.clear_pose_targets()
       print "Robot Reset"
 
+  def quitApplication(self):
+    sys.exit()
+
 def main():
   try:
     leaps = LeapMoveGroup()
-    #Get original robot position
-    print "Program Running - Press Enter to Exit"
     raw_input()
 
   except rospy.ROSInterruptException:
