@@ -36,6 +36,10 @@ Navigate to the files location and make it executable with 'sudo chmod +x'
 
 5. **Terminal** -> rosrun moveit_tutorials pyMoveGroup.py
 
+6. Use right hand to move robot. Use GUI reset button to move robot back to original position.
+
+7. Control robot gripper with left hand pinch gesture. (Thumb and Index)
+
 (Optional) **Terminal** -> LeapControlPanel
 
 Edit dpRound value to change hand movement threshold.
