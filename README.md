@@ -2,6 +2,7 @@
 Telemanipulation using Leap Motion devices on a ROS Panda robot.
 
 ## Requirements:
+-  1x Leap Motion Controller
 
 - [Ubuntu 16.04](http://releases.ubuntu.com/16.04/)
 
@@ -14,6 +15,16 @@ Telemanipulation using Leap Motion devices on a ROS Panda robot.
 - [MoveIt!](https://moveit.ros.org/install/)
 
 ## Setup:
+
+Install The required software.
+
+Follow ROS tutorials on setting up a catkin workspace.
+
+Install Leap Motion SDK and MoveIt! package into catkin workspace and build with 'catkin make'.
+
+Download the application script 'pyMoveGroup.py'.
+
+Navigate to the files location and make it executable with 'sudo chmod +x'
 
 1. **Terminal** -> sudo Leapd
 
