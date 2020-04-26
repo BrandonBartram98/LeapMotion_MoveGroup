@@ -37,3 +37,7 @@ Navigate to the files location and make it executable with 'sudo chmod +x'
 5. **Terminal** -> rosrun moveit_tutorials pyMoveGroup.py
 
 (Optional) **Terminal** -> LeapControlPanel
+
+Edit dpRound value to change hand movement threshold.
+
+```self.dpRound = 1 #3 Decimal Points for Rounding```
