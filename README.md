@@ -22,9 +22,9 @@ Follow ROS tutorials on setting up a catkin workspace.
 
 Install Leap Motion SDK and MoveIt! package into catkin workspace and build with 'catkin make'.
 
-Download the application script 'pyMoveGroup.py'.
+Download the application script 'pyMoveGroup.py' and place it into a new folder within catkin/src/moveit_tutorials.
 
-Navigate to the files location and make it executable with 'sudo chmod +x'
+Navigate to the script location and make it executable with 'sudo chmod +x'.
 
 1. **Terminal** -> sudo Leapd
 
